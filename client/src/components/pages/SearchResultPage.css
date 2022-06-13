@@ -1,0 +1,28 @@
+ul{
+    list-style-type: none;
+}
+h2{
+    color: #333333;
+    font-weight:normal; 
+}
+hr {
+    background: #EEEEEE;
+    color: #EEEEEE;
+    border-color: #EEEEEE;
+    height: 1px;
+}
+.ProductImage{
+    max-width: 180px;
+    max-height: 180px;
+}
+.LocationSpan{
+    color: #999999;
+    margin-right: 16px;
+    font-size: 13px;
+}
+.Product-Result{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px;
+    border-bottom-color: #333333;
+}
