@@ -7,10 +7,12 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Helmet from 'react-helmet';
+import { useParams } from "react-router-dom";
 
 import productImage from '../../assets/productImage.webp';
 
 function ItemDetailPage() {
+    const {id} = useParams()
     return (
         <Container style={{ background: 'white' }}>
             <Helmet>‍
@@ -27,7 +29,7 @@ function ItemDetailPage() {
                             Nuevo - 50 vendidos
                         </div>
                         <div>
-                            <h1>Monitor</h1>
+                            <h1>{id}</h1>
                         </div>
                         <div>
                             <span>$848392.99</span>

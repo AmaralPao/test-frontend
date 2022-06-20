@@ -1,18 +1,13 @@
 
-//Logo and search icon imports
-import logo from "../../assets/Logo_ML.png";
-import searchIcon from "../../assets/ic_Search.png";
-
-//Material UI
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/Logo_ML.png';
+import searchIcon from '../../assets/ic_Search.png';
+import { styled} from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
-
-//Component CSS
-import "./SearchBar.css";
+import './SearchBar.css';
 
 //Material UI CSS
 const Search = styled('div')(({ theme }) => ({
@@ -27,34 +22,18 @@ const Search = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
-  },
-  width: '500px',
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  alignItems: 'center',
-  backgroundColor: '#EEEEEE',
-  borderBottomRightRadius: '4px',
-  borderTopRightRadius: '4px',
-  display: 'flex',
-  height: '100%',
-  justifyContent: 'center',
-  padding: theme.spacing(0, 1.5),
-  pointerEvents: 'none',
-  position: 'absolute',
-  right: '0px',
+  }
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: '#333333',
   ':placeholder': {
-    color: "#999999"
+    color: '#999999'
   },
   width: '800px',
-
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    fontSize: "18px",
+    fontSize: '18px',
     // vertical padding + font size from searchIcon
     paddingLeft: '10px',
     paddingRight: `calc(1em + ${theme.spacing(4)})`,
@@ -62,21 +41,35 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchBar() {
+function SearchBar({setSearchInput}) {
+  const navigate = useNavigate();
+  const handleClick = (path) => {
+    navigate(path)
+
+   // setSearchInput('')
+  }
+  const handleType = (event) => {
+   // setSearchInput(event.target.value)
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* These inline styles should be moved */}
-      <AppBar position="static" style={{ background: '#FFE600', boxShadow: 'none' }}>
+
+      <AppBar position='static' style={{ background: '#FFE600', boxShadow: 'none' }}>
         <Toolbar style={{ margin: 'auto' }}>
-          <img src={logo} className="App-logo" alt="logo" style={{ marginRight: '20px' }} />
+          <img src={logo} className='App-logo' alt='logo' style={{ marginRight: '20px' }} onClick={() => handleClick('/')} />
+
           <Search>
-            <SearchIconWrapper>
+
+            <div className='search-button' onClick={() => handleClick('/items?')}>
               <img src={searchIcon} />
-            </SearchIconWrapper>
+            </div>
+
             <StyledInputBase
-              placeholder="Nunca dejes de buscar"
+              onKeyPress={handleType}
+              placeholder='Nunca dejes de buscar'
               inputProps={{ 'aria-label': 'search' }}
-              className="search-box"
+              className='search-box'
             />
           </Search>
         </Toolbar>
