@@ -1,18 +1,22 @@
-import * as React from "react";
+import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Helmet from 'react-helmet';
 import { useParams } from "react-router-dom";
-
-import productImage from '../../assets/productImage.webp';
+import { getItem } from '../../services/ItemService'
+import './ItemDetailPage.css';
 
 function ItemDetailPage() {
+    const [item, setItem] = useState({})
     const {id} = useParams()
+
+    useEffect(() => {
+        getItem(id).then(item => {
+            setItem(item.item)
+        })
+    }, [])
+
     return (
         <Container style={{ background: 'white' }}>
             <Helmet>‍
@@ -21,31 +25,30 @@ function ItemDetailPage() {
             </Helmet>
             <Grid item xs={6} style={{ background: 'transparent', padding: '16px' }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={8}>
-                        <img src={productImage} />
+                    <Grid item xs={8} className='image'>
+                        <img src={item.picture} />
                     </Grid>
                     <Grid item xs={4}>
                         <div>
-                            Nuevo - 50 vendidos
+                            {item.condition} - {item.sold_quantity} vendidos
                         </div>
-                        <div>
-                            <h1>{id}</h1>
+                        <div className='title'>
+                            <h1>{item.title}</h1>
                         </div>
-                        <div>
-                            <span>$848392.99</span>
+                        <div className='price'>
+                            <span>${ !item.price ? '':item.price.amount}</span>
                         </div>
                         <div>
                             <Button
-                                style={{ marginTop: '32px' }}
+                                style={{ marginRight: '32px', width:'100%' }}
                                 variant="contained">Comprar</Button>
                         </div>
                     </Grid>
                 </Grid>
             </Grid>
             <Container style={{ padding: '16px' }}>
-                <h3>Descripción del Producto</h3>
-
-                <span>Mucho texto</span>
+                <h2>Descripción del Producto</h2>
+                <p>{item.description}</p>
             </Container>
         </Container>
 
