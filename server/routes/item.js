@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     if (!req.query.q) {
       res.status(404).json('Not Found')
     } else {
-      const searchResponse = await fetch(`${url}/sites/MLA/search?q=${req.query.q}`);
+      const searchResponse = await fetch(`${url}/sites/MLA/search?q=${req.query.q}&&limit=10`);
       const searchData = await searchResponse.json();
 
       let items = searchData.results.map( (item)=> {
@@ -19,8 +19,8 @@ router.get('/', async (req, res) => {
             "title": item.title,
             "price": {
               "currency": item.currency_id,
-              "amount": item.available_quantity,
-              "decimals": 0
+              "amount": item.price,
+              "decimals": 2
             },
             "picture": item.thumbnail,
             "condition": item.condition,
