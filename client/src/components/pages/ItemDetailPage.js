@@ -6,6 +6,8 @@ import Helmet from 'react-helmet';
 import { useParams } from "react-router-dom";
 import { getItem } from '../../services/ItemService'
 import './ItemDetailPage.css';
+import Breadcrumbs from '../common/Breadcrumbs'
+import BreadcrumStyles from "../common/Breadcrumb.css";
 
 function ItemDetailPage() {
     const [item, setItem] = useState({})
@@ -18,6 +20,21 @@ function ItemDetailPage() {
     }, [])
 
     return (
+        <div>
+
+  
+        <Container>
+        <Grid className={BreadcrumStyles.breadcrumb} item xs={6} style={{ background: 'transparent', padding: '16px' }}>
+          <Grid item >
+            <Breadcrumbs
+              s1={"cat1"}
+              s2={"cat2"}
+              s3={"cat3"}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+
         <Container style={{ background: 'white' }}>
             <Helmet>‍
                 <title>Monitor</title>‍
@@ -51,6 +68,7 @@ function ItemDetailPage() {
                 <p>{item.description}</p>
             </Container>
         </Container>
+        </div>
 
     )
 }

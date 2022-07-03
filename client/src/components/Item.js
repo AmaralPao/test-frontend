@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import { height } from '@mui/system';
 import React from 'react';
 import './item.css';
+
 function Item(props) {
     return (
             <Grid container spacing={1} onClick={()=>props.onclick(props.id)}>

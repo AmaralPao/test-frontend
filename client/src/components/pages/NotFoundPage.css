@@ -1,0 +1,31 @@
+.not-found{
+    background-color: #FFF;
+    font-weight: 300;
+    margin:auto;
+    max-width: 1000px;
+    min-height: 200px;
+
+}
+.not-found-icon-wrapper{
+    text-align: center;
+}
+.not-found-icon{
+    margin-left: 20px;
+}
+.not-found-text{
+    padding: 42px 40px 32px;
+    text-align: left;
+}
+.not-found h3{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.08;
+}
+.not-found ul{
+    padding: 0px;
+    margin-left: 18px;
+    list-style-type: disc;
+}
+.not-found li{
+    font-size: 16px;
+}

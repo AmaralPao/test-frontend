@@ -1,19 +1,36 @@
 
 import * as React from "react";
-import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Helmet from 'react-helmet';
+import SearchOffIcon from '@mui/icons-material/SearchOff';
+import './NotFoundPage.css';
 
 function NotFountPage() {
     return (
-        <Container style={{ background: 'white', minHeight:'200px'}}>
-            No hay publicaciones que coincidan con tu búsqueda.
-        </Container>
+        <Grid
+            container direction="row"
+            justifyContent="center"
+            alignItems="center"
+            className="not-found"
+        >
+            <Grid item xs={3} className="not-found-icon-wrapper">
+                <SearchOffIcon sx={{ fontSize: 100 }} className="not-found-icon" />
+            </Grid>
+            <Grid item xs={9} className="not-found-text">
+                <h3>No hay publicaciones que coincidan con tu búsqueda.</h3>
+                <ul>
+                    <li>
+                        <strong>Revisa la ortografía</strong> de la palabra.
+                    </li>
+                    <li>
+                        Utiliza <strong>palabras más genéricas</strong> o menos palabras.
+                    </li>
+                    <li>
+                        <strong>Navega por las categorías</strong> para encontrar un producto similar
+                    </li>
+                </ul>
+            </Grid>
+
+        </Grid >
     );
 }
 
