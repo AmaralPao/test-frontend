@@ -4,8 +4,7 @@ import React from 'react';
 import './item.css';
 function Item(props) {
     return (
-        <React.Fragment>
-            <Grid container spacing={1}>
+            <Grid container spacing={1} onClick={()=>props.onclick(props.id)}>
                 <Grid item xs={2}>
                     <img className="ProductImage" src={props.img} />
                 </Grid>
@@ -21,7 +20,6 @@ function Item(props) {
                     <span className="titleSpan">{props.store}</span>
                 </Grid>
             </Grid>
-        </React.Fragment>
     )
 }
 export default Item;

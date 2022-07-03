@@ -1,4 +1,5 @@
 
+import React from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/Logo_ML.png';
 import searchIcon from '../../assets/ic_Search.png';
@@ -8,6 +9,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import './SearchBar.css';
+
 
 //Material UI CSS
 const Search = styled('div')(({ theme }) => ({
@@ -41,15 +43,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchBar({setSearchInput}) {
+function SearchBar(props) {
+  
   const navigate = useNavigate();
-  const handleClick = (path) => {
-    navigate(path)
-
-   // setSearchInput('')
-  }
-  const handleType = (event) => {
-   // setSearchInput(event.target.value)
+  
+  const handleIconClick = () => {
+      navigate('/');
   }
 
   return (
@@ -57,19 +56,17 @@ function SearchBar({setSearchInput}) {
 
       <AppBar position='static' style={{ background: '#FFE600', boxShadow: 'none' }}>
         <Toolbar style={{ margin: 'auto' }}>
-          <img src={logo} className='App-logo' alt='logo' style={{ marginRight: '20px' }} onClick={() => handleClick('/')} />
-
+          <img src={logo} className='App-logo' alt='logo' style={{ marginRight: '20px' }} onClick={  handleIconClick } />
           <Search>
-
-            <div className='search-button' onClick={() => handleClick('/items?')}>
+            <div className='search-button' onClick={ props.handleSearchClick }>
               <img src={searchIcon} />
             </div>
-
             <StyledInputBase
-              onKeyPress={handleType}
-              placeholder='Nunca dejes de buscar'
-              inputProps={{ 'aria-label': 'search' }}
-              className='search-box'
+              onChange= {props.handleOnChange}
+              placeholder= 'Nunca dejes de buscar'
+              inputProps= {{ 'aria-label': 'search' }}
+              className= 'search-box'
+              value = {props.searchText}
             />
           </Search>
         </Toolbar>

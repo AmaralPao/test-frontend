@@ -4,15 +4,23 @@ import Grid from '@mui/material/Grid';
 import { searchItem } from '../../services/ItemService'
 import Item from '../Item'
 import Divider from '../Divider'
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
-function SearchResultPage() {
+function SearchResultPage(props) {
     const [items, setItems] = useState(null);
+    let [searchParams] = useSearchParams();
+    let [searchParameter] = useState(searchParams.get("search"))
+    const navigate = useNavigate();
 
     useEffect(() => {
-        searchItem("zapatos").then(items => {
-            setItems(items.items)
-        })
-    }, [])
+        if(searchParameter){
+            searchItem(searchParameter).then(items => setItems(items.items))
+        }
+    }, [searchParameter])
+
+    function onclick(id){
+        navigate(`/items/${id}`)
+    }
 
     return (
 
@@ -20,15 +28,16 @@ function SearchResultPage() {
             <Grid item xs={6} style={{ background: 'transparent', padding: '16px' }}></Grid>
             {!items ? '' : items.map(item => {
                 return (
-                    <React.Fragment>
+                    <React.Fragment key={item.id}>
                         <Item
-                            key={item.id}
+                            id={item.id}
                             title={item.title}
                             price={item.price.amount}
                             store={"algo"}
                             img={item.picture}
+                            onclick={onclick}
                         />
-                        <Divider />
+                        <Divider/>
                     </React.Fragment>
                 )
             })}
