@@ -8,7 +8,7 @@ import './SearchResultPage.css'
 import Breadcrumbs from '../common/Breadcrumbs'
 import Grid from '@mui/material/Grid';
 
-function SearchResultPage(props) {
+function SearchResultPage() {
     const [items, setItems] = useState(null);
     const [categories, setCategories] = useState(null);
     let [searchParams] = useSearchParams();

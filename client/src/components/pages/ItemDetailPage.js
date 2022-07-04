@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from "react-router-dom";
 import { getItem } from '../../services/ItemService'
 import './ItemDetailPage.css';

@@ -25,3 +25,11 @@ Open a new terminal and run:
 ```
 cd client && npm start
 ```
+
+## Run with docker and docker compose
+
+docker and docker compose needs to be installed
+
+```
+make up
+```

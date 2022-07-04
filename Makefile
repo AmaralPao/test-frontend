@@ -1,2 +1,2 @@
 up:
-	docker compose up --no-deps --force-recreate
+	docker compose build --no-cache && docker compose up -d
