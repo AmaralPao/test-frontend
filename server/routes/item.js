@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     if (!req.query.q) {
       res.status(404).json('Not Found')
     } else {
-      const searchResponse = await fetch(`${url}/sites/MLA/search?q=${req.query.q}&&limit=10`);
+      const searchResponse = await fetch(`${url}/sites/MLA/search?q=${req.query.q}&&limit=4`);
       const searchData = await searchResponse.json();
 
       let items = searchData.results.map( (item)=> {

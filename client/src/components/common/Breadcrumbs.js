@@ -1,11 +1,21 @@
-import "./Breadcrumb.css";
+import React from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import './Breadcrumbs.css'
 
 function Breadcrumbs(props) {
+
+    const listCategories = !props.categories ? null : props.categories.map((category, index) =>
+        <React.Fragment key={category}>
+           <span>{category}</span>{ index != (props.categories.length - 1) ? <ArrowForwardIosIcon key={category+index} sx={{ fontSize: 12 }}/> : ''}    
+        </React.Fragment>
+    );
+
     return (
-        <div style={{ background: 'transparent' , color:'#999999'}}> 
-           {props.s1} <ArrowForwardIosIcon sx={{ fontSize: 12 }}/>  {props.s2} <ArrowForwardIosIcon sx={{ fontSize: 12 }}/> {props.s3}      
-        </div>
+        <Grid className='custom-breadcrumbs'> 
+           {listCategories}
+        </Grid>
     );
 }
 

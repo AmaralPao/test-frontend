@@ -1,28 +1,33 @@
-ul{
-    list-style-type: none;
-}
-h2{
+h2 {
     color: #333333;
-    font-weight:normal; 
+    display: inline-block;
+    font-weight: normal;
+    font-size: 24px;
+    margin-bottom: 32px;
 }
+
 hr {
     background: #EEEEEE;
-    color: #EEEEEE;
     border-color: #EEEEEE;
+    color: #EEEEEE;
     height: 1px;
 }
-.ProductImage{
-    width: 180px;
+
+.shipping {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.product-image {
     height: 180px;
+    width: 180px;
+    padding: 16px;
 }
-.titleSpan{
-    color: #999999;
-    margin-right: 16px;
-    font-size: 13px;
+
+.seller {
+    color: #666;
+    font-size: 12px;
 }
-.Product-Result{
-    padding-top: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px;
-    border-bottom-color: #333333;
+.product-desc{
+    padding-left: 16px;
 }

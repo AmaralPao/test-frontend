@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '../../assets/Logo_ML.png';
 import searchIcon from '../../assets/ic_Search.png';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import { useNavigate } from 'react-router-dom';
@@ -52,7 +52,7 @@ function SearchBar(props) {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Container sx={{ flexGrow: 1 }}>
       <AppBar position='static' style={{ background: '#FFE600', boxShadow: 'none' }}>
         <Toolbar style={{ margin: 'auto' }}>
           <img src={logo} className='app-logo' alt='logo' style={{ marginRight: '20px' }} onClick={handleIconClick} />
@@ -66,12 +66,12 @@ function SearchBar(props) {
               placeholder='Nunca dejes de buscar'
               inputProps={{ 'aria-label': 'search' }}
               className='search-box'
-              value={props.searchText}
+              value={props.value}
             />
           </Search>
         </Toolbar>
       </AppBar>
-    </Box>
+    </Container>
   );
 }
 export default SearchBar;

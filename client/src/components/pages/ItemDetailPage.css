@@ -1,11 +1,65 @@
-.price{
+.item-page {
+    padding-bottom: 42px;
+
+}
+
+.item-card {
+    background-color: white;
+    margin-bottom: 32px;
+}
+
+
+
+.item-description p {
+    font-size: 16px;
+    margin-bottom: 32px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.item-description h2 {
+    font-size: 28px;
+    margin: 32px;
+}
+
+.item-title {
+    padding-right: 32px;
+}
+
+.item-image {
+    align-items: center;
+}
+
+.item-image img {
+    width: 680px;
+}
+
+.buy-buton {
+    width: 100%;
+}
+
+.buttom-wrapper{
+    background-color: rgb(6, 141, 96);
+
+}
+
+.price {
     font-size: 46px;
     margin-top: 32px;
     margin-bottom: 32px;
 }
-.title h1{
-    font-size: 24px;
+
+.price span {
+    font-size: 46px;
+    margin-left: 20px;
 }
-.image img{
-    width: 680px;
+
+.quatity {
+    margin-top: 32px;
+    padding-bottom: 16px;
+}
+
+.title h1 {
+    font-size: 24px;
+    margin: 0;
 }

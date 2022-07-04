@@ -28,7 +28,6 @@ function App() {
         search: `?${createSearchParams(params)}`,
       });
     }
-
   }
 
   // Handle text typing and updates the searchText sate 
@@ -58,10 +57,9 @@ function App() {
         <SearchBar handleSearchClick={handleSearchClick} handleOnChange={handleOnChange} handleEnter={handleEnter} />
       </Container>
       <Routes>
-        <Route path="/" >
-          <Route path="items/:id" element={<ItemDetailPage />} />
-          <Route path="items" element={<SearchResultPage key={searchQuery} />} />
-        </Route>
+        <Route path="/" />
+        <Route path="/items/:id" element={<ItemDetailPage />} />
+        <Route path="/items" element={<SearchResultPage key={searchQuery} value={searchText}/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

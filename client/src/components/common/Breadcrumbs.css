@@ -1,0 +1,18 @@
+.custom-breadcrumbs {
+    color: #999999;
+    padding: 16px 0 16px 0;
+}
+
+.custom-breadcrumbs span{
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.custom-breadcrumbs span:first-child{
+    padding-left: 0px;
+}
+
+.custom-breadcrumbs span:last-child{
+    font-weight: bold;
+}
